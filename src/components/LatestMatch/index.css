@@ -1,0 +1,29 @@
+/* Write your CSS here */
+ {
+  box-sizing: border-box;
+}
+.match-h1 {
+  font-family: Bree Serif;
+  font-size: 25px;
+  color: white;
+}
+.p {
+  font-family: Bree Serif;
+  font-size: 15px;
+  color: white;
+}
+.img {
+  height: 150px;
+  margin-top: 40px;
+}
+.main-match {
+  background-color: #1e293b;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  border-radius: 10px;
+}
+.div {
+  margin-top: 20px;
+}

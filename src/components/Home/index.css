@@ -1,0 +1,27 @@
+/* Write your CSS here */
+.Home-main {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/ipl-dashboard-sm-bg.png');
+  height: 100vh;
+  padding: 10px;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Home-head {
+  font-family: Bree Serif;
+  color: white;
+}
+.Home-img {
+  height: 90px;
+  margin: 10px;
+}
+.card-heading {
+  display: flex;
+  justify-content: center;
+}
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

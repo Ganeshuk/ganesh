@@ -1,0 +1,24 @@
+/* Write your CSS here */
+.teamcard {
+  height: 100px;
+  margin: 10px;
+}
+.h1 {
+  font-family: Bree Serif;
+  font-size: 20px;
+  color: white;
+}
+.li {
+  display: flex;
+  width: 300px;
+  background-color: transparent;
+  border-style: solid;
+  border-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 15px;
+}
+.link {
+  color: white;
+  text-decoration: none;
+}
