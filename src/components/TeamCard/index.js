@@ -5,7 +5,7 @@ import './index.css'
 const Teamcard = props => {
   const {name, id, img} = props
   return (
-    <Link to={`/ipl/${id}`} className="link">
+    <Link to={`/team-matches/${id}`} className="link">
       <li className="li">
         <img src={img} alt={name} className="teamcard" />
         <h1 className="h1">{name}</h1>

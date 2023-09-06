@@ -1,10 +1,12 @@
 // Write your code here
 import {Component} from 'react'
+import Loader from 'react-loader-spinner'
 import Latest from '../LatestMatch'
+
 import './index.css'
 
 class Matches extends Component {
-  state = {list1: []}
+  state = {list1: {}, istime: true, name: ''}
 
   componentDidMount() {
     this.createteam()
@@ -16,7 +18,7 @@ class Matches extends Component {
     const {id} = params
     const result = await fetch(`https://apis.ccbp.in/ipl/${id}`)
     const re = await result.json()
-    console.log(re)
+
     const formatt = {
       teamBanner: re.team_banner_url,
       latestMatch: {
@@ -38,21 +40,45 @@ class Matches extends Component {
 
         venue: re.latest_match_details.venue,
       },
-
-      recentMatch: re.recent_matches,
+      recentMatch: re.recent_matches.map(each => ({
+        competingTeam: each.competing_team,
+        competingTeamLogo: each.competing_team_logo,
+        firstInnings: each.first_innings,
+        secondInnings: each.second_innings,
+        result: each.result,
+        matchStatus: each.match_status,
+      })),
     }
 
-    this.setState({list1: formatt})
+    this.setState({list1: formatt, istime: false, name: id})
   }
 
   render() {
-    const {list1} = this.state
-    console.log(list1.latestMatch)
+    const {list1, istime, name} = this.state
 
+    const back = `back ${name}`
     return (
-      <div>
-        <img src={list1.teamBanner} alt="team banner" className="Match-img" />
-        <Latest list={list1.latestMatch} />
+      <div className={back}>
+        {istime ? (
+          <div className="loader-container">
+            <Loader type="Oval" color="#ffffff" height={50} />
+          </div>
+        ) : (
+          <div>
+            <center>
+              {' '}
+              <img
+                src={list1.teamBanner}
+                alt="team banner"
+                className="Match-img"
+              />
+            </center>
+            <center>
+              {' '}
+              <Latest Team={list1} />
+            </center>
+          </div>
+        )}
       </div>
     )
   }

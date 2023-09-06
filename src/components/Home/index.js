@@ -1,5 +1,7 @@
 // Write your code here
 import {Component} from 'react'
+import Loader from 'react-loader-spinner'
+
 import Teamcard from '../TeamCard'
 import './index.css'
 
@@ -13,16 +15,20 @@ class Home extends Component {
   getinfo = async () => {
     const result = await fetch('https://apis.ccbp.in/ipl')
     const re = await result.json()
+
     console.log(re.teams)
     this.setState({list: re.teams, time: false})
   }
 
   render() {
     const {list, time} = this.state
+    console.log(Loader)
     return (
       <div className="Home-main">
         {time ? (
-          <h1>Loading.....</h1>
+          <div className="loader-container">
+            <Loader type="Oval" color="#ffffff" height={50} />
+          </div>
         ) : (
           <div>
             <div className="card-heading">
